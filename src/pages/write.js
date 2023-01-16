@@ -43,8 +43,8 @@ export default () => `
             });
 
             $submitButton.addEventListener('click', () => {
-                const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-                const BASE_URL = 'http://43.201.103.199';
+                const PROXY = window.location.hostname === 'http://127.0.0.1:5500/' ? '' : '/proxy';
+                // const BASE_URL = 'http://43.201.103.199';
                 const inputValue = $input.value;
                 const textareaValue = $textarea.value;
                 const data = {"title": inputValue, "content": textareaValue, "image": imageURL}
