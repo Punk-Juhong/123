@@ -4,7 +4,7 @@ export default () => `
         <button class="header__button"></button>
     </header>
     <main class="main home">
-        <button class="home__write-button">새 글 작성하기</button>
+        <a class="home__write-button" href="/write" data-link>새 글 작성하기</a>
         <ul class="list">
         </ul>
     </main>
@@ -12,10 +12,10 @@ export default () => `
 
 export const homeScript = () => {
     const BASE_URL = 'http://43.201.103.199';
-    const $list = document.querySelector('.main');
+    const $list = document.querySelector('.list');
     
     fetch(`${BASE_URL}/posts`, {
-        method: 'POST'
+        method: 'GET'
     })
     .then((response) => {
         return response.json();
@@ -31,7 +31,7 @@ export const homeScript = () => {
     const createItem = (item) => {
         return `
             <li class="item">
-                <a class="item__link" href="/view">
+                <a class="item__link" href="/view/259">
                     <figure class="item__img"><img src="${item.image}"/></figure>
                     <div class="item__text">
                         <h4 class="item__title">${item.title}</h4>

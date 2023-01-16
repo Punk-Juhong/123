@@ -1,10 +1,11 @@
 import home, { homeScript } from "./pages/home.js";
 import view, { viewScript } from "./pages/view.js";
+import write, { writeScript } from "./pages/write.js";
 
 const routes = {
     "/": { title: "Home", render: home, script: homeScript },
-    "/view": { title: "View", render: view, script: viewScript },
-    // "/write": { title: "Home", render: home, script: homeScript },
+    "/view/:id": { title: "View", render: view, script: viewScript },
+    "/write": { title: "Write", render: write, script: writeScript },
 };
 
 function router() {
