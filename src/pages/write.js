@@ -43,12 +43,13 @@ export default () => `
             });
 
             $submitButton.addEventListener('click', () => {
+                const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
                 const BASE_URL = 'http://43.201.103.199';
                 const inputValue = $input.value;
                 const textareaValue = $textarea.value;
                 const data = {"title": inputValue, "content": textareaValue, "image": imageURL}
 
-                fetch(`${BASE_URL}/post`, {
+                fetch(`${PROXY}/post`, {
                     method: 'POST',
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(data),
