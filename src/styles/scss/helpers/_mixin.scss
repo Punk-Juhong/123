@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin primary-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    height: 67px;
+    color: $white;
+    background-color: $primary;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: $bold;
+}
+
+@mixin icon-button($wh) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: #{$wh}px;
+    height: #{$wh}px;
+}

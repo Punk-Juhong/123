@@ -1,0 +1,32 @@
+@use "../helpers" as *;
+
+.edit {
+    gap: 16px;
+
+    &__img img {
+        max-width: 100%;
+    }
+
+    &__content {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__input {
+        width: 100%;
+        padding-bottom: 6px;
+        border: 0;
+        border-bottom: 1px solid $gray300;
+        font-size: 20px;
+    }
+
+    &__textarea {
+        width: 100%;
+        border: 0;
+        resize: none;
+    }
+
+    &__submit-button {
+        @include primary-button;
+    }
+}

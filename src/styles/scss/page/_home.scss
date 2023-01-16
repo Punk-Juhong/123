@@ -1,0 +1,39 @@
+@use "../helpers" as *;
+
+.list {
+    display: grid;
+    gap: 24px;
+}
+
+.item {
+    display: flex;
+    gap: 16px;
+    border: 1.5px solid $gray300;
+    border-radius: 12px;
+    overflow: hidden;
+
+    &__img {
+        width: 76px;
+        aspect-ratio: 1 / 1;
+    }
+
+    &__text {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        min-width: 0;
+        padding-right: 8px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: $bold;
+    }
+
+    &__desc {
+        font-weight: $medium;
+        @include ellipsis;
+    }
+}
