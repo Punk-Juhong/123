@@ -21,4 +21,43 @@ export default () => `
         </div>`
 
 
-        export const writeScript = () => {}
+        export const writeScript = () => {
+            const $input = document.querySelector('.write__input');
+            const $textarea = document.querySelector('.write__textarea');
+            const $imageButton = document.querySelector('.write__image-button');
+            const $submitButton = document.querySelector('.write__submit-button');
+            let imageURL;
+            
+            $imageButton.addEventListener('click', () => {
+                const BASE_URL = 'https://api.unsplash.com/photos/random?client_id=ILtHYrkJs1wsM4E0xYunFbec6nmvUYpN23TSjb5sVgE';
+
+                fetch(`${BASE_URL}`, {
+                    method: 'get',
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    imageURL = data.urls.full;
+                })
+            });
+
+            $submitButton.addEventListener('click', () => {
+                const BASE_URL = 'http://43.201.103.199';
+                const inputValue = $input.value;
+                const textareaValue = $textarea.value;
+                const data = {"title": inputValue, "content": textareaValue, "image": imageURL}
+
+                fetch(`${BASE_URL}/post`, {
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(data),
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log("성공", data)
+                })
+            });
+        }

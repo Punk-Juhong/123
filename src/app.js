@@ -11,6 +11,9 @@ const routes = {
 function router() {
     let view = routes[location.pathname];
 
+    const routeRegex = new RegExp(/^\/$/);
+    const path = location.pathname + location.param;
+
     if (view) {
         document.title = view.title;
         app.innerHTML = view.render();
@@ -29,6 +32,14 @@ window.addEventListener("click", (e) => {
         router();
     }
 });
+
+// const potentialMatches = routes.map(route => {
+// return {
+//     route: route,
+//     // result로 변경하고 정규식과 일치하는 pathname을 담는다
+//     result: location.pathname.match(pathToRegex(route.path))
+// };
+// });
 
 // Update router
 window.addEventListener("popstate", router);

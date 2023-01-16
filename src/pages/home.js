@@ -12,10 +12,10 @@ export default () => `
 
 export const homeScript = () => {
     const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    // const BASE_URL = 'http://43.201.103.199';
+    const BASE_URL = 'http://43.201.103.199';
     const $list = document.querySelector('.list');
     
-    fetch(`${PROXY}/posts`, {
+    fetch(`${BASE_URL}/posts`, {
         method: 'GET'
     })
     .then((response) => {
@@ -32,7 +32,7 @@ export const homeScript = () => {
     const createItem = (item) => {
         return `
             <li class="item">
-                <a class="item__link" href="/view/259">
+                <a class="item__link" href="/view/${item.postId}">
                     <figure class="item__img"><img src="${item.image}"/></figure>
                     <div class="item__text">
                         <h4 class="item__title">${item.title}</h4>
