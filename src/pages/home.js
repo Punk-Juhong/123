@@ -15,7 +15,7 @@ export const homeScript = () => {
     const $list = document.querySelector('.main');
     
     fetch(`${BASE_URL}/posts`, {
-        method: 'GET'
+        method: 'POST'
     })
     .then((response) => {
         return response.json();
