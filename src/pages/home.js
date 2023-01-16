@@ -11,10 +11,11 @@ export default () => `
 `;
 
 export const homeScript = () => {
-    const BASE_URL = 'http://43.201.103.199';
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    // const BASE_URL = 'http://43.201.103.199';
     const $list = document.querySelector('.list');
     
-    fetch(`${BASE_URL}/posts`, {
+    fetch(`${PROXY}/posts`, {
         method: 'GET'
     })
     .then((response) => {
